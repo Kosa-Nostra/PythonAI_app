@@ -1,7 +1,6 @@
-from flask import Flask, render_template, request  # Импортируем необходимые модули Flask
-import openai  # Импортируем библиотеку openai для работы с OpenAI API
-
-app = Flask(__name__)  # Создаём экземпляр Flask-приложения
+from flask import Flask, render_template, request  
+import openai  
+app = Flask(__name__)  
 
 @app.route('/', methods=['GET', 'POST'])  # Определяем маршрут для главной страницы, поддерживает GET и POST
 def index():
@@ -23,8 +22,7 @@ def index():
                 answer = f"Ошибка: {str(e)}"  # В случае ошибки выводим её текст
         else:
             answer = 'Пожалуйста, введите API ключ и вопрос.'  # Если не все поля заполнены
-    # Отправляем переменные в шаблон для отображения на странице
     return render_template('index.html', answer=answer, api_key=api_key, question=question)
 
-if __name__ == '__main__':  # Запуск приложения, если файл запущен напрямую
-    app.run(debug=True)  # Запускаем Flask в режиме отладки 
+if __name__ == '__main__':  
+    app.run(debug=True)  
