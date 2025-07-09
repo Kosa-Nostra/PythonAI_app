@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Ассистент на OpenAI API</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+        .container { max-width: 500px; margin: 40px auto; background: #fff; padding: 30px; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+        input, textarea { width: 100%; padding: 10px; margin: 10px 0 20px 0; border-radius: 4px; border: 1px solid #ccc; }
+        button { background: #007bff; color: #fff; border: none; padding: 10px 20px; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .answer { background: #f9f9f9; padding: 15px; border-radius: 4px; margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>AI Ассистент (OpenAI API)</h2>
+        <form method="post">
+            <label>OpenAI API ключ:</label>
+            <input type="password" name="api_key" value="{{ api_key }}" placeholder="Введите ваш OpenAI API ключ" required>
+            <label>Ваш вопрос:</label>
+            <textarea name="question" rows="4" placeholder="Введите ваш вопрос" required>{{ question }}</textarea>
+            <button type="submit">Отправить</button>
+        </form>
+        {% if answer %}
+            <div class="answer">
+                <strong>Ответ:</strong><br>
+                {{ answer }}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html> 
